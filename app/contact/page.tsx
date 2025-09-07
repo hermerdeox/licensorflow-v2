@@ -69,7 +69,7 @@ export default function ContactPage() {
       icon: Phone,
       title: "Phone Support",
       description: "Speak directly with our healthcare compliance experts",
-      contact: "1-888-555-0123",
+      contact: "+1 877 344 3423",
       availability: "Mon-Fri 8AM-6PM EST",
       color: "from-blue-500 to-blue-600"
     },
@@ -103,7 +103,7 @@ export default function ContactPage() {
     {
       city: "Dover, DE",
       address: "611 South DuPont Highway Suite 102, Dover, DE 19901",
-      phone: "1-888-555-0123",
+      phone: "+1 877 344 3423",
       email: "support@licensorflow.com",
       hours: "Mon-Fri 8AM-6PM EST"
     }
