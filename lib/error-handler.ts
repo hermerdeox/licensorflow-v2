@@ -64,19 +64,30 @@ class ErrorHandler {
     // Handle console errors
     const originalConsoleError = console.error;
     console.error = (...args) => {
-      originalConsoleError.apply(console, args);
+      const errorMessage = args.join(' ');
       
-      // Check if it's a React error
-      if (args[0]?.includes?.('Error:') || args[0]?.includes?.('Warning:')) {
-        this.handleError(
-          new Error(args.join(' ')),
-          {
-            component: 'Console',
-            action: 'console-error',
-            severity: 'low',
-            category: 'ui'
-          }
-        );
+      // Filter out hydration mismatch errors caused by browser extensions
+      const isHydrationMismatch = errorMessage.includes('hydrated but some attributes') ||
+                                 errorMessage.includes('cz-shortcut-listen') ||
+                                 errorMessage.includes('browser extension') ||
+                                 errorMessage.includes('hydration-mismatch');
+      
+      // Only log non-hydration errors to avoid console spam
+      if (!isHydrationMismatch) {
+        originalConsoleError.apply(console, args);
+        
+        // Check if it's a React error
+        if (args[0]?.includes?.('Error:') || args[0]?.includes?.('Warning:')) {
+          this.handleError(
+            new Error(errorMessage),
+            {
+              component: 'Console',
+              action: 'console-error',
+              severity: 'low',
+              category: 'ui'
+            }
+          );
+        }
       }
     };
   }

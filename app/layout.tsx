@@ -5,6 +5,7 @@ import { Toaster } from 'sonner';
 import Header from '@/components/Header';
 import { GlobalErrorBoundary } from '@/components/GlobalErrorBoundary';
 import ErrorMonitor from '@/components/ErrorMonitor';
+import ClientOnly from '@/components/ClientOnly';
 
 // Initialize error suppression in development
 if (process.env.NODE_ENV === 'development') {
@@ -30,13 +31,15 @@ export default function RootLayout({
         <GlobalErrorBoundary>
           <Header />
           {children}
-          <Toaster 
-            position="top-right"
-            duration={4000}
-            theme="dark"
-            richColors
-          />
-          <ErrorMonitor showInDevelopment={true} />
+          <ClientOnly>
+            <Toaster 
+              position="top-right"
+              duration={4000}
+              theme="dark"
+              richColors
+            />
+            <ErrorMonitor showInDevelopment={true} />
+          </ClientOnly>
         </GlobalErrorBoundary>
       </body>
     </html>
