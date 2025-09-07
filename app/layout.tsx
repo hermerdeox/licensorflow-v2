@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import { GlobalErrorBoundary } from '@/components/GlobalErrorBoundary';
 import ErrorMonitor from '@/components/ErrorMonitor';
 import ClientOnly from '@/components/ClientOnly';
+import HydrationBoundary from '@/components/HydrationBoundary';
 
 // Initialize error suppression in development
 if (process.env.NODE_ENV === 'development') {
@@ -28,19 +29,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-gray-900 text-white antialiased`}>
-        <GlobalErrorBoundary>
-          <Header />
-          {children}
-          <ClientOnly>
-            <Toaster 
-              position="top-right"
-              duration={4000}
-              theme="dark"
-              richColors
-            />
-            <ErrorMonitor showInDevelopment={true} />
-          </ClientOnly>
-        </GlobalErrorBoundary>
+        <HydrationBoundary>
+          <GlobalErrorBoundary>
+            <Header />
+            {children}
+            <ClientOnly>
+              <Toaster 
+                position="top-right"
+                duration={4000}
+                theme="dark"
+                richColors
+              />
+              <ErrorMonitor showInDevelopment={true} />
+            </ClientOnly>
+          </GlobalErrorBoundary>
+        </HydrationBoundary>
       </body>
     </html>
   );

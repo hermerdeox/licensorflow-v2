@@ -89,6 +89,7 @@ class ErrorHandler {
           );
         }
       }
+      // Silently ignore hydration mismatch errors - don't log them at all
     };
   }
 
