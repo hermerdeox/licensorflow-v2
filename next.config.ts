@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
     serverComponentsExternalPackages: ['@prisma/client'],
   },
   
+  // Production optimizations
+  swcMinify: true,
+  reactStrictMode: true,
+  
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -30,12 +34,15 @@ const nextConfig: NextConfig = {
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        minSize: 20000,
+        maxSize: 244000,
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
             priority: 10,
+            enforce: true,
           },
           common: {
             name: 'common',
@@ -43,6 +50,19 @@ const nextConfig: NextConfig = {
             chunks: 'all',
             priority: 5,
             reuseExistingChunk: true,
+            enforce: true,
+          },
+          framerMotion: {
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            name: 'framer-motion',
+            chunks: 'all',
+            priority: 20,
+          },
+          lucideReact: {
+            test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+            name: 'lucide-react',
+            chunks: 'all',
+            priority: 20,
           },
         },
       };
