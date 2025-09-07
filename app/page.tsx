@@ -12,180 +12,62 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 
-// Particle component for background effect
-const Particle = ({ index }: { index: number }) => {
-  // Use deterministic values based on index to avoid hydration mismatch
-  const seed = index * 7.3;
-  const randomX = ((seed * 13.7) % 100);
-  const randomY = ((seed * 17.3) % 100);
-  const randomDelay = ((seed * 2.3) % 20);
-  const randomDuration = 20 + ((seed * 3.7) % 30);
-  const randomSize = 2 + ((seed * 1.3) % 4);
-
-  // Different particle types for variety
-  const particleType = index % 3;
-  const colors = [
-    'from-blue-400/30 to-blue-600/20',
-    'from-teal-400/30 to-teal-600/20',
-    'from-orange-400/20 to-orange-600/10'
-  ];
-
-  return (
-    <motion.div
-      className={`absolute rounded-full bg-gradient-to-br ${colors[particleType]} blur-sm`}
-      style={{
-        left: `${randomX}%`,
-        top: `${randomY}%`,
-        width: `${randomSize}px`,
-        height: `${randomSize}px`,
-        boxShadow: `0 0 ${randomSize * 2}px rgba(59, 130, 246, 0.5)`,
-      }}
-      animate={{
-        y: [-20, -60, -20],
-        x: [0, randomX > 50 ? 15 : -15, 0],
-        opacity: [0, 0.6, 0],
-        scale: [0.8, 1.2, 0.8],
-      }}
-      transition={{
-        duration: randomDuration,
-        delay: randomDelay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-};
-
-// Floating network lines component
-const NetworkLines = () => {
-  return (
-    <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-      <motion.line
-        x1="10%" y1="20%" x2="30%" y2="40%"
-        stroke="url(#gradient1)"
-        strokeWidth="0.5"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.3 }}
-        transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-      />
-      <motion.line
-        x1="70%" y1="10%" x2="90%" y2="30%"
-        stroke="url(#gradient1)"
-        strokeWidth="0.5"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.3 }}
-        transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-      />
-      <motion.line
-        x1="20%" y1="70%" x2="50%" y2="60%"
-        stroke="url(#gradient1)"
-        strokeWidth="0.5"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.3 }}
-        transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse", delay: 2 }}
-      />
-      <defs>
-        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.2" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
-// Flux wave animation component
-const FluxWave = () => {
+// Modern gradient mesh background - lightweight and sophisticated
+const ModernBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Animated gradient waves */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            'radial-gradient(600px circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-            'radial-gradient(600px circle at 100% 100%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-            'radial-gradient(600px circle at 100% 0%, rgba(20, 184, 166, 0.15) 0%, transparent 50%)',
-            'radial-gradient(600px circle at 0% 100%, rgba(251, 146, 60, 0.15) 0%, transparent 50%)',
-            'radial-gradient(600px circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-            'radial-gradient(600px circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-          ],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
+      {/* Static gradient mesh - no animations for better performance */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-teal-900/10" />
+      
+      {/* Subtle geometric patterns using CSS */}
+      <div 
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 60%, rgba(251, 146, 60, 0.2) 0%, transparent 50%)
+          `,
         }}
       />
       
-      {/* Flux distortion waves */}
-      <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-        <defs>
-          <filter id="flux">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.01"
-              numOctaves="2"
-              result="turbulence"
-            />
-            <feColorMatrix in="turbulence" type="saturate" values="0" />
-          </filter>
-        </defs>
-        <motion.rect
-          width="100%"
-          height="100%"
-          filter="url(#flux)"
-          opacity="0.05"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </svg>
-
-      {/* Glowing orbs with flux effect */}
+      {/* Minimal floating elements - only 3 instead of 60 */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"
         animate={{
-          x: [0, 100, -50, 0],
-          y: [0, -50, 100, 0],
-          scale: [1, 1.2, 0.9, 1],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 25,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl"
+        className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-teal-500/10 rounded-full blur-xl"
         animate={{
-          x: [0, -100, 50, 0],
-          y: [0, 50, -100, 0],
-          scale: [1, 0.9, 1.2, 1],
+          scale: [1.1, 1, 1.1],
+          opacity: [0.4, 0.2, 0.4],
         }}
         transition={{
-          duration: 20,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2,
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-teal-500/10 to-orange-500/10 rounded-full blur-3xl"
+        className="absolute top-1/2 right-1/4 w-20 h-20 bg-orange-500/10 rounded-full blur-xl"
         animate={{
-          rotate: [0, 360],
-          scale: [0.8, 1.1, 0.8],
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
         transition={{
-          duration: 30,
+          duration: 10,
           repeat: Infinity,
-          ease: "linear",
+          ease: "easeInOut",
+          delay: 4,
         }}
       />
     </div>
@@ -194,8 +76,6 @@ const FluxWave = () => {
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
-  // Create particles array deterministically
-  const particles = Array.from({ length: 60 }, (_, i) => i);
   
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -319,18 +199,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-teal-900/8 to-orange-900/5" />
         </div>
 
-        {/* Flux wave animation effect */}
-        <FluxWave />
-
-        {/* Network lines effect */}
-        <NetworkLines />
-
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {particles.map((index) => (
-            <Particle key={index} index={index} />
-          ))}
-        </div>
+        {/* Modern lightweight background */}
+        <ModernBackground />
 
 
         <motion.div 
