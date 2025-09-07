@@ -11,6 +11,37 @@ const publicRoutes = [
   '/auth/verify',
   '/api/auth',
   '/api/webhooks',
+  // Public marketing and information pages
+  '/features',
+  '/pricing',
+  '/why-us',
+  '/contact',
+  '/integrations',
+  '/api-docs',
+  '/privacy',
+  '/terms',
+  '/about',
+  '/careers',
+  '/partners',
+  '/press',
+  '/blog',
+  '/cookies',
+  '/hipaa-compliance',
+  '/security',
+  '/sla',
+  '/sitemap',
+  '/accessibility',
+  '/compliance-center',
+  // Compliance and training pages
+  '/hipaa',
+  '/osha',
+  '/certifications',
+  '/calendar',
+  '/updates',
+  '/resources',
+  // Redirect pages
+  '/register',
+  '/login',
 ];
 
 const authRoutes = [

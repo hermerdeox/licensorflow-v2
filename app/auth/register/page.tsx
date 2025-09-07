@@ -75,125 +75,125 @@ export default function RegisterPage() {
   };
   
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md space-y-8 p-8 bg-white rounded-lg shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gray-900 pt-16">
+      <div className="w-full max-w-md space-y-8 p-8 bg-gray-800 rounded-lg shadow-xl border border-gray-700">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Create Account</h2>
-          <p className="mt-2 text-gray-600">Start your compliance journey</p>
+          <h2 className="text-3xl font-bold text-white">Create Account</h2>
+          <p className="mt-2 text-gray-400">Start your compliance journey</p>
         </div>
         
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-300">
                 First Name
               </label>
               <input
                 {...register('firstName')}
                 type="text"
                 autoComplete="given-name"
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
                 disabled={isLoading}
               />
               {errors.firstName && (
-                <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.firstName.message}</p>
               )}
             </div>
             
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-300">
                 Last Name
               </label>
               <input
                 {...register('lastName')}
                 type="text"
                 autoComplete="family-name"
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
                 disabled={isLoading}
               />
               {errors.lastName && (
-                <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.lastName.message}</p>
               )}
             </div>
           </div>
           
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300">
               Email Address
             </label>
             <input
               {...register('email')}
               type="email"
               autoComplete="email"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
               disabled={isLoading}
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+              <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
             )}
           </div>
           
           <div>
-            <label htmlFor="organizationName" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="organizationName" className="block text-sm font-medium text-gray-300">
               Organization Name (Optional)
             </label>
             <input
               {...register('organizationName')}
               type="text"
               autoComplete="organization"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
               disabled={isLoading}
             />
             {errors.organizationName && (
-              <p className="mt-1 text-sm text-red-600">{errors.organizationName.message}</p>
+              <p className="mt-1 text-sm text-red-400">{errors.organizationName.message}</p>
             )}
           </div>
           
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300">
               Password
             </label>
             <input
               {...register('password')}
               type="password"
               autoComplete="new-password"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
               disabled={isLoading}
             />
             {errors.password && (
-              <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+              <p className="mt-1 text-sm text-red-400">{errors.password.message}</p>
             )}
           </div>
           
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300">
               Confirm Password
             </label>
             <input
               {...register('confirmPassword')}
               type="password"
               autoComplete="new-password"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full rounded-md border border-gray-600 bg-gray-700 text-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder-gray-400"
               disabled={isLoading}
             />
             {errors.confirmPassword && (
-              <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
+              <p className="mt-1 text-sm text-red-400">{errors.confirmPassword.message}</p>
             )}
           </div>
           
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
           >
             {isLoading ? 'Creating account...' : 'Create Account'}
           </button>
         </form>
         
         <div className="text-center">
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-400">
             Already have an account?{' '}
-            <Link href="/auth/login" className="text-blue-600 hover:underline">
+            <Link href="/auth/login" className="text-blue-400 hover:text-blue-300 hover:underline">
               Sign in
             </Link>
           </span>

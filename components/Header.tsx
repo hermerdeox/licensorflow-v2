@@ -22,12 +22,10 @@ export default function Header() {
   }, [handleError]);
 
   const navigation = [
-    { name: 'Features', href: '/features' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Courses', href: '/courses' },
-    { name: 'License Vault', href: '/license-vault' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Features', href: '#features' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return safeRender(
@@ -37,11 +35,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center h-16 flex-shrink-0">
+          <Link 
+            href="/" 
+            className="flex items-center h-16 flex-shrink-0"
+            title="LicensorFlow - Go to Homepage"
+            aria-label="LicensorFlow Homepage"
+          >
             <img
               src="/licensor-flow-logo.png"
               alt="LicensorFlow"
-              className="h-14 w-auto max-h-14 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+              className="h-14 w-auto max-h-14 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
               style={{ maxWidth: '220px' }}
             />
           </Link>
